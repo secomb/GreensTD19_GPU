@@ -1,0 +1,3 @@
+Cremaster: equivalent cylinder model washout simulation, with initial tissue loading
+  1  number of time intervals
+25.	10	0	time step, number of steps, 0=zero input, 1=fixed input, 2=variable input as defined below

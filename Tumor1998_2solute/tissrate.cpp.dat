@@ -1,0 +1,26 @@
+/**************************************************************************
+Problem-specific code for inclusion in tissrate.cpp - TWS July 2013
+Input variables are:
+nsp = number of solutes/reactants
+c[isp] for isp = 1 to nsp: concentrations
+tissparam[1][isp], tissparam[2][isp], tissparam[3][isp] for isp = 1 to nsp:
+	parameters defining reaction rates
+Output variables are:
+mtiss[isp] for isp = 1 to nsp: rate of production of solute isp
+mptiss[isp] for isp = 1 to nsp:
+	partial derivative of mtiss[isp] with respect to c[isp]
+Note: mptiss is used in GreensTD for non-permeable solutes
+****************************************************************************
+Warning: Rebuild solution after changing this file otherwise it does not update
+****************************************************************************/
+	for(isp=1; isp<=nsp; isp++){	//solute with first-order decay
+		if(isp == 1){
+			mtiss[isp] = tissparam[1][1]*c[2] - tissparam[2][1]*c[1];
+			mptiss[isp] = -tissparam[2][1];
+		}
+		else if(isp == 2){			//solute produced by solute 1, with first order decay 
+			mtiss[isp] = tissparam[1][2]*c[1] - tissparam[2][2]*c[2];
+			mptiss[isp] = -tissparam[2][2];
+		}
+		else printf("*** Error: Solute not found in tissrate.cpp.dat\n");
+	}

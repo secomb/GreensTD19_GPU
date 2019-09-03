@@ -1,0 +1,21 @@
+Solute parameters for Cremaster: equivalent cylinder model 
+  50 1			nmax - iteration limit, useGPU (0,1,2,*3 or 4)
+  1.e-5		errfac:  overall convergence tolerance (suggest 1e-5 to 1e-4)
+  38.			P50 in mmHg
+  3.0			n in Hill equation 
+  0.5           Oxygen binding capacity of red cells in cm^3/cm^3
+  1			Relative inflow to network (q0fac) (1.0 in test case) 0.118 = 0.1 mm/s
+  1			number of reacting species
+Solute 1 - small diffusible inert solute
+  1	  1   0	permsolute, 0 or 1, diffsolute, 0 or 1; oxygen, 0 or 1, 1 if solute is oxygen
+  5.e-8		diff[] - tissue D in cm^2/s
+  1.			crefb[] - typical maximum blood conc.
+  1.			creft[] - typical maximum tissue conc.
+  0.			cinitb[] - initial blood conc.
+  1.			cinitt[] - initial tissue conc.
+  1.			alphab[] - blood alpha in cm^3 O2/cm^3/mmHg
+  1.			alphat[] - tissue alpha in cm^3 O2/cm^3/mmHg
+  0.			tissparam[1][] - Extra, not used
+  0.			tissparam[2][] - Extra, not used
+  0.			tissparam[3][] - Extra, not used
+  1.			lambda[] - underrelaxation factor for tissue rates. Use < 1 for nonlinear rates.

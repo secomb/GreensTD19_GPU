@@ -1,0 +1,19 @@
+/**************************************************************************
+Problem-specific code for inclusion in tissrate.cpp - TWS July 2013
+Input variables are:
+nsp = number of solutes/reactants
+c[isp] for isp = 1 to nsp: concentrations
+tissparam[1][isp], tissparam[2][isp], tissparam[3][isp] for isp = 1 to nsp:
+	parameters defining reaction rates
+Output variables are:
+mtiss[isp] for isp = 1 to nsp: rate of production of solute isp
+mptiss[isp] for isp = 1 to nsp:
+	partial derivative of mtiss[isp] with respect to c[isp]
+****************************************************************************/
+	for(isp=1; isp<=nsp; isp++){	//inert solute
+		if(isp == 1){
+			mtiss[isp] = 0.;
+			mptiss[isp] = 0.;
+		}
+		else printf("*** Error: Solute not found in tissrate.cpp.dat\n");
+	}
