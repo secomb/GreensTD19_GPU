@@ -4,13 +4,9 @@
 
 In the Green’s function method for simulating solute transport from a network of vessels to a finite volume of tissue, vessels and tissue are treated as distributions of sources of sinks. The time-dependent version of this method is described in: Secomb, T.W. A Green's function method for simulation of time-dependent solute transport and reaction in realistic microvascular geometries. Mathematical Medicine and Biology 33:475-494 (2016).
 
-All necessary files, including C source code and sample data and output files are included in a zip file:
-GreensTD Version 1 (remove _.txt from the file name and then unzip).
+This GPU version is set up to run with Cuda 10.1.
 
-A version for GPU (graphical processing unit) computers using CUDA is also available in a zip file:
-GreensTDGPU Version 1 (remove _.txt from the file name and then unzip).
-
-Notes
+**Notes**
 
 1. This method uses an “infinite-domain solution,” in which the network of vessels and the associated tissue domain are effectively embedded in an infinite space with zero net exchange of solute across the tissue domain boundaries. Such an approach has two advantages: it is applicable to tissue domains of arbitrary shape, and it avoids artifacts that can occur when specific boundary conditions, such as the no-flux condition, are imposed.
 
@@ -39,6 +35,10 @@ Network.dat. This file specifies the network structure, the flow rate and hemato
 
 7. The program generates several output files giving results in numerical form. It generates a folder called "Current" in the working folder (if it does not already exist), and generates postscript files showing the vessel network and the contours of each solute, in the "Current" folder. They can be viewed using a postscript viewer, such as GSview http://pages.cs.wisc.edu/~ghost/gsview/get50.htm. Also, a series of files "GreensWashoutnn.txt" is produced giving the time-dependent values of the inflowing and outflowing concentrations of each solute, together with its "ambient" concentration. These washout data are fitted to an exponential function to obtain the characteritic decay rates (lambda), which are summarized in "WashoutRate.txt." Further output piles are saved only for the final time point: VesselSources.out, VesselLevels.out, TissueSources.out, TissueLevels.out, greens.exelem, greens.exenode. The last two files can be used to obtain 3D visualizations of the network using CMGUI.
 
-8. We have tested this package using Microsoft Visual C++ 2010 under Windows 7. For instructions on setting up a new project with this compiler, please see NewProject.txt. For error reporting and suggestions please contact Dr. Timothy W. Secomb, (520) 626-4513, email secomb@u.arizona.edu. We welcome your comments and suggestions.
+8. We have tested this package using Microsoft Visual C++ 2019 under Windows 10. With Cuda 10.1 installed, create a new project using the "CUDA 10.1 Runtime" option. Remove the kernel.cu file.  
+Right-click on the project name, go to Properties | Linker | Additional Dependencies | Edit and add  
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\lib\x64\cublas.lib (This is the old cublas library, the new one is cublas_v2.)
 
-9. This program is freely available for non-commercial use, provided appropriate acknowledgement is given. Commercial users please contact us before using this program. No assurance is given that it is free of errors and any use is at the user’s risk.
+9. For error reporting and suggestions please contact Dr. Timothy W. Secomb, (520) 626-4513, email secomb@u.arizona.edu. We welcome your comments and suggestions.
+
+10. This program is freely available for non-commercial use, provided appropriate acknowledgement is given. Commercial users please contact us before using this program. No assurance is given that it is free of errors and any use is at the user’s risk.
