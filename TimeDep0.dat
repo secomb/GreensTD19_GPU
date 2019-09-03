@@ -1,0 +1,5 @@
+1998 tumor network simulation, with two solutes
+2  number of time intervals
+10.	20	1   1	time step, number of steps, solute information (0=zero input, 1=fixed input, 2=variable input as defined below)
+20.	30	1   1	time step, number of steps, solute information (0=zero input, 1=fixed input, 2=variable input as defined below)
+
